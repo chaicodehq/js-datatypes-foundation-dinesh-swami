@@ -45,22 +45,40 @@
  *   shoutChaiOrder("masala chai")          // => "MASALA CHAI"
  *   hasSpecialIngredient("Elaichi Chai", "elaichi")  // => true
  */
+
 export function getChaiOrderLength(order) {
-  // Your code here
+  if (typeof order !== "string") return -1;
+  return order.trim().length;
 }
 
 export function shoutChaiOrder(order) {
-  // Your code here
+  if (typeof order !== "string") return "";
+  const cleaned = order.trim();
+  if (cleaned === "") return "";
+  return cleaned.toUpperCase();
 }
 
 export function whisperChaiOrder(order) {
-  // Your code here
+  if (typeof order !== "string") return "";
+  const cleaned = order.trim();
+  if (cleaned === "") return "";
+  return cleaned.toLowerCase();
 }
 
 export function hasSpecialIngredient(order, ingredient) {
-  // Your code here
+  if (typeof order !== "string" || typeof ingredient !== "string") {
+    return false;
+  }
+  return order.toLowerCase().includes(ingredient.toLowerCase());
 }
 
 export function getFirstAndLastChar(order) {
-  // Your code here
+  if (typeof order !== "string") return null;
+  const cleaned = order.trim();
+  if (cleaned === "") return null;
+
+  return {
+    first: cleaned.charAt(0),
+    last: cleaned.at(-1)
+  };
 }
